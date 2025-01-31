@@ -1,0 +1,26 @@
+name: Helm Lint & Upgrade Check
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Install Helm
+        uses: azure/setup-helm@v3
+        with:
+          version: v3.9.0
+
+      - name: Lint Helm Chart
+        run: helm lint ./monitoring-stack
+
+      - name: Check for Helm Chart Updates
+        run: |
+          helm repo update
+          helm search repo prometheus-community/kube-prometheus-stack
