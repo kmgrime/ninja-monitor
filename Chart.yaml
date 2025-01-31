@@ -25,9 +25,9 @@ appVersion: "1.16.0"
 
 dependencies:
   - name: kube-prometheus-stack
-    version: "55.4.0"  # Use the latest stable version
+    version: "68.4.3"  # Use the latest stable version
     repository: "https://prometheus-community.github.io/helm-charts"
 
   - name: loki-stack
-    version: "2.9.10"  # Use the latest stable version
+    version: "2.10.2"  # Use the latest stable version
     repository: "https://grafana.github.io/helm-charts"
